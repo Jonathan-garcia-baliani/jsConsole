@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content=". viajador tur comunicate con nosotros," />
+
+  <title>Contacto - Viajados Tur</title>
+
+  <!-- Enlaces a estilos externos -->
+  <link rel="stylesheet" href="../css/estilo.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
+  <link rel="stylesheet" href="../scss/estilo.scss" />
+</head>
+
+<body>
+  <header>
+    <a href="#">
+      <img class="logo" src="../img/logo.png" class="img-fluid" alt="logo de coder viajes" />
+    </a>
+    <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+    <nav class="nav" id="nav">
+      <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+      <ul class="nav-list">
+        <li class="item"><a href="../index.html">Home</a></li>
+        <li class="item"><a href="destinos.html">Destinos</a></li>
+        <li class="item"><a href="conoce-los-destinos.html">Conoce los destinos</a></li>
+        <li class="item"><a href="sucursales.html">Sucursales</a></li>
+        <li class="item"><a href="contacto.html">Contacto</a></li>
+        <li class="btn" id="loginBtn"><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="bienvenida">
+      <h1>Bienvenido/a, <span id="usernameDisplay">[Nombre del usuario]</span></h1>
+      <p class="texto-contacto">
+        Esperamos que este mensaje te encuentre bien. Somos [viajados tur], apasionados viajeros que han tenido el placer de disfrutar de sus servicios en varias ocasiones. Queremos expresar nuestro agradecimiento por la calidad excepcional de sus paquetes turísticos y la atención personalizada que nos brindan. Cada viaje con [viajados tur] ha sido una experiencia inolvidable, llena de momentos memorables y descubrimientos emocionantes. La profesionalidad de su equipo y la cuidadosa planificación de cada itinerario nos han permitido explorar nuevos destinos de manera relajada y segura. Nos encantaría compartir nuestras experiencias con ustedes y con otros viajeros que estén considerando sus servicios. ¿Cómo podemos contribuir con testimonios o reseñas? ¿Existe alguna plataforma específica donde preferirían que compartiéramos nuestras vivencias? Agradecemos nuevamente por hacer posible que cada viaje con [Nombre de la Empresa] sea una aventura única. Esperamos seguir confiando en su experiencia para futuras escapadas y animamos a más personas a descubrir el mundo a través de sus increíbles servicios. ¡Gracias por todo y que sigan los viajes inolvidables!
+      </p>
+    </div>
+  </main>
+
+  <footer class="abajo">
+    <h3 class="texto-footer">Viajados tur - todos los derechos reservados</h3>
+  </footer>
+
+  <!-- Scripts al final del body para mejorar el rendimiento de carga -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+      if (isLoggedIn) {
+        const username = sessionStorage.getItem("username");
+        updateNavigation(username);
+      }
+    });
+
+    function updateNavigation(username) {
+      const loginBtn = document.getElementById("loginBtn");
+      if (loginBtn) {
+        loginBtn.innerHTML = `<a href="ingreso.html">Perfil ${username}</a>`;
+        loginBtn.onclick = function () {
+          sessionStorage.removeItem("isLoggedIn");
+          sessionStorage.removeItem("username");
+          window.location.href = "login.html";
+        };
+
+        const navList = document.querySelector(".nav-list");
+        if (navList) {
+          const loginLink = navList.querySelector(".btn a[href='login.html']");
+          if (loginLink) {
+            const li = loginLink.parentElement;
+            li.remove();
+          }
+
+          const profileLink = document.createElement("li");
+          profileLink.classList.add("item");
+          profileLink.innerHTML = `<a href="ingreso.html">Perfil ${username}</a>`;
+          navList.appendChild(profileLink);
+        }
+      }
+
+      const usernameDisplay = document.getElementById("usernameDisplay");
+      if (usernameDisplay) {
+        usernameDisplay.textContent = username;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Descubre en nuestras sucursales actividades emocionantes y alojamientos acogedores.">
+  <meta name="keywords" content="tur, viajes, turista, paseo">
+  <title>Sucursales - Viajados Tur</title>
+
+  <!-- Enlaces a estilos externos -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="../scss/estilo.scss">
+
+  <!-- Script para manejar la autenticación y navegación -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const abrirBtn = document.getElementById("abrir");
+      const cerrarBtn = document.getElementById("cerrar");
+      const nav = document.getElementById("nav");
+
+      abrirBtn.addEventListener("click", function () {
+        nav.classList.add("mostrar");
+      });
+
+      cerrarBtn.addEventListener("click", function () {
+        nav.classList.remove("mostrar");
+      });
+
+      // Verificar si el usuario está autenticado
+      const isLoggedIn = sessionStorage.getItem("isLoggedIn");
+      if (isLoggedIn) {
+        const username = sessionStorage.getItem("username");
+        updateNavigation(username);
+      }
+    });
+
+    function updateNavigation(username) {
+      const loginBtn = document.getElementById("loginBtn");
+      if (loginBtn) {
+        loginBtn.innerHTML = `<a href="ingreso.html">Perfil ${username}</a>`;
+        loginBtn.onclick = function () {
+          sessionStorage.removeItem("isLoggedIn");
+          sessionStorage.removeItem("username");
+          window.location.href = "login.html";
+        };
+
+        const navList = document.querySelector(".nav-list");
+        if (navList) {
+          const loginLink = navList.querySelector(".btn a[href='login.html']");
+          if (loginLink) {
+            loginLink.parentElement.remove();
+          }
+
+          const profileLink = document.createElement("li");
+          profileLink.classList.add("item");
+          profileLink.innerHTML = `<a href="ingreso.html">Perfil ${username}</a>`;
+          navList.appendChild(profileLink);
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <header>
+    <a href="#">
+      <img class="logo" src="../img/logo.png" class="img-fluid" alt="logo de coder viajes">
+    </a>
+    <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+    <nav class="nav" id="nav">
+      <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+      <ul class="nav-list">
+        <li class="item"><a href="../index.html">Home</a></li>
+        <li class="item"><a href="destinos.html">Destinos</a></li>
+        <li class="item"><a href="conoce-los-destinos.html">Conoce los destinos</a></li>
+        <li class="item"><a href="sucursales.html">Sucursales</a></li>
+        <li class="item"><a href="contacto.html">Contacto</a></li>
+        <li class="btn" id="loginBtn"><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="ho">Viajados Tur</h1>
+    <h2 class="ho">Nuestras Sucursales</h2>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52642.20734356745!2d-57.83647529999999!3d-34.4486457!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95a312689e9baadf%3A0xd805b8023fcf8708!2s70000%20Col.%20del%20Sacramento%2C%20Departamento%20de%20Colonia!5e0!3m2!1ses-419!2suy!4v1702053877150!5m2!1ses-419!2suy"
+      width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </main>
+
+  <footer class="abajo">
+    <h3 class="texto-footer">Viajados Tur - Todos los derechos reservados</h3>
+  </footer>
+
+  <!-- Scripts al final del body para mejorar el rendimiento de carga -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="../js/script.js"></script>
+</body>
+</html>

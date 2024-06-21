@@ -1,0 +1,257 @@
+/*header*/
+
+header {
+    border-bottom: 1px solid rgb(0, 0, 0);
+    text-align: center;
+    padding: 10px 20px;
+  }
+  
+  .logo {
+    width: 500px;
+    height: 280px;
+  }
+
+  .encabezado .boton {
+    display: none;
+}
+
+
+  /*destinos*/
+
+.destinos {
+    margin: 5vh;
+    font-size: 2rem;
+  
+    h3, p {
+      font-size: inherit;
+    }
+  }
+  
+  .contenedorDestinos div {
+    grid-template-columns: 1fr 1fr;
+    width: 1012px;
+    height: 586px;
+  }
+
+.contenedorDestinos {
+    margin: 20px;
+    border: 5px solid #333;
+    border-radius: 10px;
+  }
+  
+  .imgdestino {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  
+  .contenedorDestinos p {
+    background-color: #151313;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+/*Guias*/
+  
+  .contenedorGuias {
+    flex-direction: column;
+  }
+  
+  .d-block w-100 {
+    width: 1023px;
+    height: 568px;
+    border: solid;
+    border-radius: flex;
+    border-image-repeat: round stretch;
+  }
+
+  
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
+  
+  
+  
+  .logo {
+    max-width: 10rem;
+    max-height: 10rem;
+    font-size: 1.5rem
+  }
+  
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem;
+    background-color: transparent;
+    z-index: 1;
+  }
+  
+
+  /*body*/
+  body {
+    background-image: url("../img/viajados2.jpg");
+    background-size: cover;
+    margin: 0;
+  
+  }
+
+  body {
+    background-image: url("../img/viajados2.jpg");
+    background-size: cover;
+    margin: 0;
+  
+    
+  }
+
+
+  /*Main*/
+
+  main {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: bottom;
+
+    padding: 20px;
+    margin-top: 60px;
+    margin-bottom: 100px
+  }
+
+  $nav-background: #aa8989; // Puedes ajustar el color de fondo según tu diseño
+  $nav-height: 0px;     // Ajusta la altura de tu barra de navegación
+  
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  color: rgb(196, 190, 110); // Puedes ajustar el color del texto según tu diseño
+  z-index: 1 
+}
+
+/* Estilos adicionales para el contenido principal */
+main {
+  padding: 220px;
+  margin-top: $nav-height;
+  margin-bottom: 100px;
+  
+  
+}
+
+
+
+ // Estilos para el área de contacto
+ .contact-area {
+  background-color: #f4f4f4; // Color de fondo para el área de contacto
+  padding: 20px;
+  border-radius: 10px; // Bordes redondeados para un aspecto más agradable
+
+  h2 {
+    color: #333; // Color del texto del encabezado
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #666; // Color del texto normal
+  }
+}
+
+
+// Estilos para la animación del logo solo al pasar el cursor
+.logo {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: rotate(360deg); // Puedes ajustar el valor según tu preferencia
+  }
+}
+
+
+
+nav {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease; // Agrega transición para suavizar el cambio
+}
+
+nav.scrolled {
+  background-color: #fff; // Cambia el color de fondo cuando haces scroll
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); // Agrega sombra cuando haces scroll
+}
+
+.logo {
+  max-width: 150px; // Ajusta el ancho máximo según tus necesidades
+  transition: transform 0.3s ease, max-width 0.3s ease; // Agrega transición para suavizar el cambio
+  margin-top: 20px; // Agrega un espacio en la parte superior para mantener la distancia con el nav
+}
+
+.logo.scrolled {
+  transform: translateY(20px) scale(0.8); // Ajusta la escala y la posición al hacer scroll
+  max-width: 60px; // Ajusta el ancho máximo cuando haces scroll
+}
+
+/* Agrega estilos específicos para el footer */
+footer {
+  background-color: #333; // Color de fondo del footer
+  padding: 20px;
+}
+
+.logo.footer {
+  max-width: 40px; // Ajusta el ancho máximo en el footer
+}
+
+
+
+
+// Estilos
+.nav-container {
+  background-color: $background-color;
+  padding: $padding;
+  border-bottom: 2px solid $border-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // Botones y lista de navegación
+  & button,
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+  }
+
+  // Botones
+  button {
+    margin-right: $margin-right;
+  }
+
+  // Enlaces de la lista
+  ul {
+    li {
+      margin-right: $margin-right;
+    }
+
+    a {
+      text-decoration: none;
+      color: $text-color;
+    }
+  }
+}

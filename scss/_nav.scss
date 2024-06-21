@@ -1,0 +1,110 @@
+.ndestino {
+    color: #fdfdfd;
+  }
+  
+  /*nav*/
+  
+  nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin: 0 10px;
+  
+    a {
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: black;
+    }
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  
+    li {
+      a {
+        text-decoration: none;
+        color: #151313;
+      }
+    }
+  }
+  
+  .abrir-menu, .cerrar-menu {
+    display: none;
+  }
+  
+  @media screen and (max-width: 996px) {
+    .abrir-menu, .cerrar-menu {
+      display: block;
+      border: 0;
+      font-size: 3rem;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  
+    .abrir-menu {
+      color: #151313;
+    }
+  
+    .cerrar-menu {
+      color: aliceblue;
+    }
+  
+    .nav {
+      opacity: 0;
+      visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: aqua;
+      padding: 2rem;
+      box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+      z-index: 1;
+  
+      &.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      align-items: end;
+  
+      a {
+        text-decoration: none;
+        color: #d5cdcd;
+      }
+    }
+  }
+  
+  #menu:checked ~ .menu {
+    display: initial;
+  }
+  
+  .item :hover {
+    color: #fff;
+  }
+  
+  .btn {
+    padding: 10px 24px;
+    border-radius: 30px;
+    background-color: rgb(235, 84, 84);
+    color: #fff;
+    font-size:$font-size;
+    cursor: pointer;
+    margin-bottom: auto;
+  
+    &:hover {
+      background-color: #9c062c;
+    }
+  }
+  
+
+  

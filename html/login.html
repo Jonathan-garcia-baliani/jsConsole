@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre en nuestras sucursales actividades emocionantes y alojamientos acogedores.">
+    <meta name="keywords" content="tur, viajes, turista, paseo">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <img class="logo" src="../img/logo.png" class="img-fluid" alt="logo de coder viajes">
+        </a>
+        <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li class="item"><a href="../index.html">Home</a></li>
+                <li class="item"><a href="destinos.html">Destinos</a></li>
+                <li class="item"><a href="conoce-los-destinos.html">Conoce los destinos</a></li>
+                <li class="item"><a href="sucursales.html">Sucursales</a></li>
+                <li class="item"><a href="contacto.html">Contacto</a></li>
+                <li class="btn" id="loginBtn"><a href="#">Login</a></li>
+                <li id="perfilText" style="display: none;"></li> <!-- Elemento para mostrar el perfil -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Formulario de login -->
+    <form id="loginForm" class="login-form">
+        <h2>Login - Viajados Tur</h2>
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" name="username" required>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" required>
+        <div class="form-links">
+            <button type="button" onclick="validateLogin()">Iniciar sesión</button>
+            <a href="registro.html">Registro</a>
+        </div>
+    </form>
+
+    <footer class="abajo mt-5">
+        <h3 class="texto-footer">Viajados tur - todos los derechos reservados</h3>
+    </footer>
+
+    <script src="/js/script.js"></script>
+    <script>
+        // Función para validar el inicio de sesión
+        function validateLogin() {
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            fetch("http://localhost:3000/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username: username,
+                    password: password,
+                }),
+            })
+            .then(handleLoginResponse)
+            .catch((error) => console.error("Error:", error));
+        }
+
+        // Función para manejar la respuesta del inicio de sesión
+        function handleLoginResponse(response) {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            return response.json().then((data) => {
+                alert(data.message);
+
+                if (data.redirectUrl) {
+                    sessionStorage.setItem("isLoggedIn", true);
+                    sessionStorage.setItem("username", data.username);
+
+                    // Actualizar texto del perfil
+                    updateProfileText(data.username);
+
+                    window.location.href = data.redirectUrl; // Redirige a ingreso.html u otra página
+                }
+            });
+        }
+
+        // Función para actualizar el texto del perfil
+        function updateProfileText(username) {
+            const perfilElement = document.getElementById("perfilText");
+            perfilElement.textContent = `Perfil: ${username}`;
+            perfilElement.style.display = "inline-block"; // Mostrar el elemento
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

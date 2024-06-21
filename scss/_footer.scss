@@ -1,0 +1,49 @@
+// Footer
+footer {
+    margin: 20px;
+    padding: 20px;
+    border-top: 1px solid black;
+    text-align: center;
+  }
+
+
+.texto-footer {
+font-size: medium;
+color: white;
+text-align: center;
+padding: 10px;
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+
+
+.abajo {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    height: $footer-height;
+    background-color: #292b2c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+   
+    }
+
+    .colage {
+      margin-bottom: 80px;
+    
+    }    
+    footer.abajo {
+      margin-top: 20px; /* Añade un espacio en la parte superior del pie de página */
+    }
+
+   
+
+        
+       
+        
+        
+      
+      

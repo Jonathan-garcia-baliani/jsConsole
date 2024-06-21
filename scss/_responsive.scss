@@ -1,0 +1,104 @@
+@media screen and (max-width: 996px) {
+    .abrir-menu, .cerrar-menu {
+      display: block;
+      border: 0;
+      font-size: 3rem;
+      background-color: transparent;
+      cursor: pointer;
+    }
+}
+
+
+// Estilos base
+body {
+    font-size: 16px;
+}
+
+// Media queries para diferentes tamaños de pantalla
+@media only screen and (max-width: $breakpoint-small) {
+    // Estilos para pantallas pequeñas
+}
+
+@media only screen and (min-width: $breakpoint-small ) and (max-width: $breakpoint-medium) {
+    // Estilos para pantallas medianas
+}
+
+@media only screen and (min-width: $breakpoint-medium ) and (max-width: $breakpoint-large) {
+    // Estilos para pantallas grandes
+}
+
+@media only screen and (min-width: $breakpoint-large ) {
+    // Estilos para pantallas extra grandes
+}
+
+// Imágenes responsivas
+img, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+// Uso de Flexbox o Grid para el diseño
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    // Otros estilos para el contenedor
+}
+
+// Ejemplo de cuadrícula CSS con Flexbox
+.item {
+    flex: 1;
+    margin: 10px;
+
+    // Otros estilos para los elementos de la cuadrícula
+}
+
+
+.texto-contacto {
+    font-size: 1rem;
+  }
+  
+  /* Ajusta el tamaño de fuente según tus preferencias */
+
+
+  form {
+    max-width: 100%;
+  }
+  
+  /* Otros estilos específicos para el formulario en pantallas pequeñas */
+
+
+  main {
+    padding: 20px;
+  }
+  
+  /* Ajusta el espaciado según tus preferencias */
+
+
+  form {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Otros estilos específicos para el formulario */
+
+
+  .btnFormulario {
+    padding: 10px;
+    font-size: 16px;
+    /* Otros estilos según tus preferencias */
+  }
+
+  #page-container {
+    transition: background-color 0.3s;
+  }
+
+  .content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  

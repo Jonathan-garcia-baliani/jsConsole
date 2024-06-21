@@ -1,0 +1,300 @@
+// Estilos generales del texto
+body {
+  font-family: $font-family;
+  font-size: $font-size;
+  line-height: $line-height;
+  color: $text-color;
+}
+
+// Estilo de encabezados
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family;
+  color: $text-color;
+  text-align: center;
+  text-decoration: underline;
+  margin: 20px 0;
+}
+
+// Estilo de párrafos
+p {
+  margin-bottom: 1em;
+}
+
+// Enlaces
+a {
+  color: #007bff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Iframe
+iframe {
+  display: block;
+  margin: auto;
+}
+
+// Formulario
+form {
+  margin-top: 20px;
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: $text-color;
+  }
+
+  input[type="text"], textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  // Botón de formulario
+  .btnFormulario {
+    background-color: $text-color;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: #2980b9;
+    }
+  }
+}
+
+
+// Imagen de la casa
+.home {
+  width: 110%;
+  height: 110%;
+}
+
+
+.home {
+  display: block;
+  margin: auto;
+  max-width: 100%; // Asegura que la imagen no supere su tamaño original
+  border: 2px solid #333; // Color del marco
+  border-radius: 10px; // Borde redondeado
+}
+
+
+  input[type="text"],
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: $font-size;
+    margin-bottom: 10px;
+  }
+
+  .btnFormulario {
+    background-color: #ffc107;
+    color: #292b2c;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: $font-size;
+    cursor: pointer;
+    margin-top: 10px;
+
+    &:hover {
+      background-color: #e0a800;
+    }
+  }
+
+
+
+
+
+
+body {
+  min-height: 100vh; // Asegura que el cuerpo ocupa al menos el 100% de la altura de la ventana
+  display: flex;
+  flex-direction: column;
+}
+
+
+main {
+  flex: 1; // Permite que el contenido principal ocupe el espacio restante
+}
+
+
+
+
+.texto-contacto {
+  font-family: $font-family; // Utiliza tu fuente preferida
+  font-size: 18px; // Ajusta el tamaño de la fuente
+  line-height: 1.6; // Ajusta la altura de línea
+  color: $text-color; // Utiliza el color de texto definido
+
+  // Agrega sombra sutil al texto
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+  // Agrega un suave resaltado al texto
+  background: linear-gradient(90deg, #131313, #0c0c0c 50%, transparent 50%);
+  background-size: 200% 100%;
+  transition: background-position 0.3s ease;
+
+  &:hover {
+    background-position: -100% 100%; // Mueve el resaltado al pasar el mouse
+  }
+
+  // Agrega transición suave al texto
+  transition: transform 0.3s ease, color 0.3s ease;
+
+  // Estilo al pasar el mouse
+  &:hover {
+    color: #222324; // Cambia el color al pasar el mouse
+    transform: scale(1.0); // Hace que el texto sea ligeramente más grande
+  }
+}
+
+
+
+form {
+  max-width: 600px; // Limita el ancho del formulario para una mejor legibilidad
+  margin: 0 auto; // Centra el formulario en la página
+
+  label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: $text-color; // Utiliza el color de texto definido
+  }
+
+  input[type="text"],
+  textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease; // Agrega transición suave al color del borde
+
+    &:focus {
+      border-color: #007bff; // Cambia el color del borde al obtener el foco
+    }
+  }
+
+  textarea {
+    resize: vertical; // Permite redimensionar verticalmente el área de texto
+
+    // Estilo del placeholder
+    &::placeholder {
+      color: #999; // Color del placeholder
+    }
+  }
+
+  .btnFormulario {
+    background-color: #007bff; // Color de fondo del botón
+    color: #fff; // Color del texto del botón
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; // Agrega transición suave al color de fondo del botón
+
+    &:hover {
+      background-color: #0056b3; // Cambia el color de fondo al pasar el mouse
+    }
+  }
+}
+
+/*body*/
+body {
+  background-image: url("../img/viajados2.jpg");
+  background-size: cover;
+  margin: 0;
+
+}
+
+body {
+  background-image: url("../img/viajados2.jpg");
+  background-size: cover;
+  margin: 0;
+
+  
+}
+
+
+/*Main*/
+
+main {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: bottom;
+
+  padding: 20px;
+  margin-top: 60px;
+  margin-bottom: 100px
+}
+
+$nav-background: #aa8989; // Puedes ajustar el color de fondo según tu diseño
+$nav-height: 0px;     // Ajusta la altura de tu barra de navegación
+
+body {
+margin: 0;
+font-family: Arial, sans-serif;
+}
+
+
+
+
+form {
+  background-color: #f07373;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(238, 105, 105, 0.1);
+  width: 300px;
+}
+
+
+body {
+  background-color: #ecf0f1;
+  transition: background-color 0.3s;
+}
+
+
+/* Nueva animación con keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Aplica la animación a un elemento específico */
+.caja {
+  animation: fadeIn 2s ease-in-out;
+}
+
+
+.espacio {
+  margin-top: 20px; /* Puedes ajustar el valor según lo necesites */
+}
+
+#loginForm {
+  margin-bottom: 20px; /* Añade un espacio en la parte inferior del formulario */
+}

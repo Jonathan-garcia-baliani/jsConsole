@@ -1,0 +1,573 @@
+@charset "UTF-8";
+@import url(../css/estilo.css);
+/*header*/
+@import 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css';
+header {
+  border-bottom: 1px solid black;
+  text-align: center;
+  padding: 10px 20px; }
+
+.logo {
+  width: 500px;
+  height: 280px; }
+
+.encabezado .boton {
+  display: none; }
+
+/*destinos*/
+.destinos {
+  margin: 5vh;
+  font-size: 2rem; }
+  .destinos h3, .destinos p {
+    font-size: inherit; }
+
+.contenedorDestinos div {
+  grid-template-columns: 1fr 1fr;
+  width: 1012px;
+  height: 586px; }
+
+.contenedorDestinos {
+  margin: 20px;
+  border: 5px solid #333;
+  border-radius: 10px; }
+
+.imgdestino {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+.contenedorDestinos p {
+  background-color: #151313;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  text-transform: uppercase; }
+
+/*Guias*/
+.contenedorGuias {
+  flex-direction: column; }
+
+.d-block w-100 {
+  width: 1023px;
+  height: 568px;
+  border: solid;
+  border-radius: flex;
+  border-image-repeat: round stretch; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif; }
+
+.logo {
+  max-width: 10rem;
+  max-height: 10rem;
+  font-size: 1.5rem; }
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background-color: transparent;
+  z-index: 1; }
+
+/*body*/
+body {
+  background-image: url("../img/viajados2.jpg");
+  background-size: cover;
+  margin: 0; }
+
+body {
+  background-image: url("../img/viajados2.jpg");
+  background-size: cover;
+  margin: 0; }
+
+/*Main*/
+main {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: bottom;
+  padding: 20px;
+  margin-top: 60px;
+  margin-bottom: 100px; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; }
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  color: #c4be6e;
+  z-index: 1; }
+
+/* Estilos adicionales para el contenido principal */
+main {
+  padding: 220px;
+  margin-top: 0px;
+  margin-bottom: 100px; }
+
+.contact-area {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 10px; }
+  .contact-area h2 {
+    color: #333;
+    margin-bottom: 15px; }
+  .contact-area p {
+    color: #666; }
+
+.logo {
+  transition: transform 0.3s ease; }
+  .logo:hover {
+    transform: rotate(360deg); }
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease; }
+
+nav.scrolled {
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+
+.logo {
+  max-width: 150px;
+  transition: transform 0.3s ease, max-width 0.3s ease;
+  margin-top: 20px; }
+
+.logo.scrolled {
+  transform: translateY(20px) scale(0.8);
+  max-width: 60px; }
+
+/* Agrega estilos específicos para el footer */
+footer {
+  background-color: #333;
+  padding: 20px; }
+
+.logo.footer {
+  max-width: 40px; }
+
+.nav-container {
+  background-color: #333;
+  padding: 10px;
+  border-bottom: 2px solid #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+  .nav-container button,
+  .nav-container ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex; }
+  .nav-container button {
+    margin-right: 15px; }
+  .nav-container ul li {
+    margin-right: 15px; }
+  .nav-container ul a {
+    text-decoration: none;
+    color: #fff; }
+
+@media screen and (max-width: 996px) {
+  .abrir-menu, .cerrar-menu {
+    display: block;
+    border: 0;
+    font-size: 3rem;
+    background-color: transparent;
+    cursor: pointer; } }
+
+body {
+  font-size: 16px; }
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto; }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.item {
+  flex: 1;
+  margin: 10px; }
+
+.texto-contacto {
+  font-size: 1rem; }
+
+/* Ajusta el tamaño de fuente según tus preferencias */
+form {
+  max-width: 100%; }
+
+/* Otros estilos específicos para el formulario en pantallas pequeñas */
+main {
+  padding: 20px; }
+
+/* Ajusta el espaciado según tus preferencias */
+form {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+
+/* Otros estilos específicos para el formulario */
+.btnFormulario {
+  padding: 10px;
+  font-size: 16px;
+  /* Otros estilos según tus preferencias */ }
+
+#page-container {
+  transition: background-color 0.3s; }
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px; }
+
+.ndestino {
+  color: #fdfdfd; }
+
+/*nav*/
+nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 10px; }
+  nav ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black; }
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem; }
+  .nav-list li a {
+    text-decoration: none;
+    color: #151313; }
+
+.abrir-menu, .cerrar-menu {
+  display: none; }
+
+@media screen and (max-width: 996px) {
+  .abrir-menu, .cerrar-menu {
+    display: block;
+    border: 0;
+    font-size: 3rem;
+    background-color: transparent;
+    cursor: pointer; }
+  .abrir-menu {
+    color: #151313; }
+  .cerrar-menu {
+    color: aliceblue; }
+  .nav {
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 1rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: aqua;
+    padding: 2rem;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+    z-index: 1; }
+    .nav.visible {
+      opacity: 1;
+      visibility: visible; }
+  .nav-list {
+    flex-direction: column;
+    align-items: end; }
+    .nav-list a {
+      text-decoration: none;
+      color: #d5cdcd; } }
+
+#menu:checked ~ .menu {
+  display: initial; }
+
+.item :hover {
+  color: #fff; }
+
+.btn {
+  padding: 10px 24px;
+  border-radius: 30px;
+  background-color: #eb5454;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: auto; }
+  .btn:hover {
+    background-color: #9c062c; }
+
+body {
+  font-family: "Arial", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #fff; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  text-align: center;
+  text-decoration: underline;
+  margin: 20px 0; }
+
+p {
+  margin-bottom: 1em; }
+
+a {
+  color: #007bff;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+iframe {
+  display: block;
+  margin: auto; }
+
+form {
+  margin-top: 20px; }
+  form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #fff; }
+  form input[type="text"], form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px; }
+  form .btnFormulario {
+    background-color: #fff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px; }
+    form .btnFormulario:hover {
+      background-color: #2980b9; }
+
+.home {
+  width: 110%;
+  height: 110%; }
+
+.home {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  border: 2px solid #333;
+  border-radius: 10px; }
+
+input[type="text"],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px; }
+
+.btnFormulario {
+  background-color: #ffc107;
+  color: #292b2c;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px; }
+  .btnFormulario:hover {
+    background-color: #e0a800; }
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; }
+
+main {
+  flex: 1; }
+
+.texto-contacto {
+  font-family: "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(90deg, #131313, #0c0c0c 50%, transparent 50%);
+  background-size: 200% 100%;
+  transition: background-position 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease; }
+  .texto-contacto:hover {
+    background-position: -100% 100%; }
+  .texto-contacto:hover {
+    color: #222324;
+    transform: scale(1); }
+
+form {
+  max-width: 600px;
+  margin: 0 auto; }
+  form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #fff; }
+  form input[type="text"],
+  form textarea {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s ease; }
+    form input[type="text"]:focus,
+    form textarea:focus {
+      border-color: #007bff; }
+  form textarea {
+    resize: vertical; }
+    form textarea::placeholder {
+      color: #999; }
+  form .btnFormulario {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease; }
+    form .btnFormulario:hover {
+      background-color: #0056b3; }
+
+/*body*/
+body {
+  background-image: url("../img/viajados2.jpg");
+  background-size: cover;
+  margin: 0; }
+
+body {
+  background-image: url("../img/viajados2.jpg");
+  background-size: cover;
+  margin: 0; }
+
+/*Main*/
+main {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  object-position: bottom;
+  padding: 20px;
+  margin-top: 60px;
+  margin-bottom: 100px; }
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif; }
+
+form {
+  background-color: #f07373;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(238, 105, 105, 0.1);
+  width: 300px; }
+
+body {
+  background-color: #ecf0f1;
+  transition: background-color 0.3s; }
+
+/* Nueva animación con keyframes */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+/* Aplica la animación a un elemento específico */
+.caja {
+  animation: fadeIn 2s ease-in-out; }
+
+.espacio {
+  margin-top: 20px;
+  /* Puedes ajustar el valor según lo necesites */ }
+
+#loginForm {
+  margin-bottom: 20px;
+  /* Añade un espacio en la parte inferior del formulario */ }
+
+footer {
+  margin: 20px;
+  padding: 20px;
+  border-top: 1px solid black;
+  text-align: center; }
+
+.texto-footer {
+  font-size: medium;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%; }
+
+.abajo {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  height: 40px;
+  background-color: #292b2c;
+  color: white;
+  padding: 10px;
+  text-align: center; }
+
+.colage {
+  margin-bottom: 80px; }
+
+footer.abajo {
+  margin-top: 20px;
+  /* Añade un espacio en la parte superior del pie de página */ }
+
+body {
+  background-image: url("../img/Designer.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff; }
+
+body {
+  font-family: 'Arial', sans-serif; }
+
+.btnFormulario {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  margin-top: 10px; }
+
+.texto-contacto {
+  color: red; }
