@@ -1,9 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const bcrypt = require('bcrypt');
-const sqlite3 = require('sqlite3').verbose();
+const bcrypt = require('bcryptjs');
 const cors = require('cors');
-const path = require('path');
+const { MongoClient } = require('mongodb');
 
 const app = express();
 const port = 3000;
@@ -19,22 +18,19 @@ app.use(cors({
     allowedHeaders: ['Content-Type']
 }));
 
-// Configurar Express para servir archivos estáticos desde la carpeta 'public'
-const publicPath = path.join(__dirname, 'public');
-app.use(express.static(publicPath));
+// Conectar a MongoDB
+const mongoUri = 'mongodb://localhost:27017';
+const dbName = 'turismo';
 
-// Configurar base de datos SQLite
-const db = new sqlite3.Database(':memory:'); // Usando base de datos en memoria, cambiar a 'database.db' para persistencia
+let db;
 
-// Crear tabla para usuarios si no existe
-db.serialize(() => {
-    db.run(`CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT UNIQUE,
-        password TEXT,
-        email TEXT,
-        age INTEGER
-    )`);
+MongoClient.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+    if (err) {
+        console.error('Error conectando a MongoDB:', err);
+        return;
+    }
+    console.log('Conexión exitosa a MongoDB');
+    db = client.db(dbName);
 });
 
 // Ruta para registrar usuarios
@@ -47,9 +43,8 @@ app.post('/register', (req, res) => {
             return res.status(500).send('Error en el servidor al hashear la contraseña');
         }
 
-        // Verificar si el usuario ya existe
-        const query = `SELECT * FROM users WHERE username = ?`;
-        db.get(query, [username], (err, existingUser) => {
+        // Verificar si el usuario ya existe en MongoDB
+        db.collection('usuarios').findOne({ username: username }, (err, existingUser) => {
             if (err) {
                 return res.status(500).send('Error en el servidor al verificar usuario existente');
             }
@@ -57,9 +52,8 @@ app.post('/register', (req, res) => {
                 return res.status(400).send('El nombre de usuario ya está en uso');
             }
 
-            // Insertar nuevo usuario
-            const insertQuery = `INSERT INTO users (username, password, email, age) VALUES (?, ?, ?, ?)`;
-            db.run(insertQuery, [username, hashedPassword, email, age], (err) => {
+            // Insertar nuevo usuario en MongoDB
+            db.collection('usuarios').insertOne({ username, password: hashedPassword, email, age }, (err) => {
                 if (err) {
                     return res.status(500).send('Error registrando al usuario');
                 }
@@ -78,9 +72,8 @@ app.post('/register', (req, res) => {
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
 
-    // Consultar el usuario por nombre de usuario
-    const query = `SELECT * FROM users WHERE username = ?`;
-    db.get(query, [username], (err, user) => {
+    // Consultar el usuario por nombre de usuario en MongoDB
+    db.collection('usuarios').findOne({ username: username }, (err, user) => {
         if (err) {
             return res.status(500).send('Error al buscar usuario');
         }

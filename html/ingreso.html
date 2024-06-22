@@ -113,7 +113,22 @@
       window.location.href = "carrito.html";
     }
 
-    // Resto del script JavaScript aquí...
+    // Función para calcular la cuota mensual
+    function calcularCuota() {
+      const monto = parseFloat(document.getElementById('monto').value);
+      const plazo = parseInt(document.getElementById('plazo').value);
+      const tasa = parseFloat(document.getElementById('tasa').value);
+
+      if (!isNaN(monto) && !isNaN(plazo) && !isNaN(tasa)) {
+        const tasaMensual = tasa / 100 / 12;
+        const cuotaMensual = (monto * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -plazo));
+        const cuotaFormateada = cuotaMensual.toFixed(2);
+
+        document.getElementById('resultado').textContent = `Cuota Mensual: $${cuotaFormateada}`;
+      } else {
+        document.getElementById('resultado').textContent = 'Por favor, ingrese valores válidos.';
+      }
+    }
   </script>
 </body>
 

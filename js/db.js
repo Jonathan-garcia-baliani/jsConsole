@@ -1,18 +1,29 @@
 // db.js
-const sqlite3 = require('sqlite3').verbose();
 
-// Crea una base de datos SQLite en memoria
-const db = new sqlite3.Database(':memory:');
+const { MongoClient } = require('mongodb');
 
-// Define la estructura de la tabla 'users' dentro de la base de datos
-db.serialize(() => {
-    db.run(`CREATE TABLE users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        username TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL
-    )`);
-});
+const uri = 'mongodb://127.0.0.1:27017';
+const dbName = 'turismo';
 
-// Exporta la instancia de la base de datos para ser utilizada en otros archivos
-module.exports = db;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+let db;
+
+async function connectToMongo() {
+    try {
+        await client.connect();
+        console.log('Conectado a MongoDB');
+        db = client.db(dbName);
+    } catch (err) {
+        console.error(err);
+    }
+}
+
+function getDb() {
+    return db;
+}
+
+module.exports = {
+    connectToMongo,
+    getDb,
+};
