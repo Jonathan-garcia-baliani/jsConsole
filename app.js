@@ -1,3 +1,4 @@
+// app.js
 require('dotenv').config();
 const express = require('express');
 const path = require('path');
@@ -12,7 +13,7 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
-    origin: process.env.CORS_ORIGIN || 'http://127.0.0.1:5500',
+    origin: '*', // Permite todas las solicitudes de origen
     methods: ['GET', 'POST'],
     allowedHeaders: ['Content-Type']
 }));
@@ -49,15 +50,13 @@ MongoClient.connect(mongoUri)
             res.status(200).json({ message: 'Inicio de sesión exitoso', redirectUrl: '/ingreso.html', username: user.username });
         });
 
-        app.use(express.static(path.join(__dirname, 'Frontend', 'html')));
+        // Servir archivos estáticos desde Frontend
+        app.use(express.static(path.join(__dirname, 'Frontend')));
 
-        // Rutas para servir archivos HTML
+        // Manejar rutas específicas
         app.get('/login.html', (req, res) => res.sendFile(path.join(__dirname, 'Frontend', 'html', 'login.html')));
         app.get('/ingreso.html', (req, res) => res.sendFile(path.join(__dirname, 'Frontend', 'html', 'ingreso.html')));
         app.get('/registro.html', (req, res) => res.sendFile(path.join(__dirname, 'Frontend', 'html', 'registro.html')));
-
-        // Ruta para manejar cualquier otra solicitud a archivos estáticos
-        app.use(express.static(path.join(__dirname, 'Frontend')));
 
         app.listen(port, () => console.log(`Servidor iniciado en http://localhost:${port}`));
     })

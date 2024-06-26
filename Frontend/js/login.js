@@ -1,4 +1,3 @@
-// login.js
 document.querySelector('#loginForm').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -17,17 +16,18 @@ document.querySelector('#loginForm').addEventListener('submit', async (event) =>
         });
 
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            const errorData = await response.json();
+            throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
         }
 
         const result = await response.json();
         if (result.redirectUrl) {
-            window.location.href = result.redirectUrl;
+            window.location.href = 'http://localhost:3000' + result.redirectUrl;
         } else {
             document.getElementById('mensaje').innerText = result.message;
         }
     } catch (error) {
-        document.getElementById('mensaje').innerText = 'Error al iniciar sesión';
+        document.getElementById('mensaje').innerText = `Error: ${error.message}`;
         console.error('Error:', error);
     }
 });

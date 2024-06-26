@@ -1,4 +1,3 @@
-// register.js
 document.querySelector('#registerForm').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -6,11 +5,6 @@ document.querySelector('#registerForm').addEventListener('submit', async (event)
     const password = event.target.elements.password.value;
     const email = event.target.elements.email.value;
     const age = event.target.elements.age.value;
-
-    if (!username || !password || !email || !age) {
-        document.getElementById('mensaje').innerText = 'Todos los campos son requeridos.';
-        return;
-    }
 
     const data = { username, password, email, age };
 
@@ -30,7 +24,7 @@ document.querySelector('#registerForm').addEventListener('submit', async (event)
 
         const result = await response.json();
         if (result.redirectUrl) {
-            window.location.href = result.redirectUrl;
+            window.location.href = 'http://localhost:3000' + result.redirectUrl;
         } else {
             document.getElementById('mensaje').innerText = result.message;
         }
