@@ -1,14 +1,12 @@
-// authRoutes.js
-
 const express = require('express');
 const router = express.Router();
-const db = require('../db');
+const { getDb } = require('../db'); // Importa getDb desde db.js
 const bcrypt = require('bcryptjs');
 
 router.post('/login', async (req, res) => {
     try {
         const { username, password } = req.body;
-        const database = db.getDb();
+        const database = getDb(); // Usa getDb para obtener la instancia de la base de datos
 
         // Buscar usuario por nombre de usuario
         const user = await database.collection('usuarios').findOne({ username });

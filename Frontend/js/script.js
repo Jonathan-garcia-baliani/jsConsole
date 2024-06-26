@@ -4,7 +4,9 @@ let bloqueado = false;
 const tiempoBloqueo = 180; // Tiempo en segundos (3 minutos)
 
 // Función para validar el inicio de sesión
-function validateLogin() {
+function validateLogin(event) {
+    event.preventDefault();
+
     // Verifica si el usuario está bloqueado
     if (bloqueado) {
         alert(
@@ -18,7 +20,7 @@ function validateLogin() {
     const password = document.getElementById("password").value;
 
     // Realiza la solicitud POST al servidor para validar el inicio de sesión
-    fetch("http://localhost:3000/login", {
+    fetch("http://localhost:3000/api/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -38,6 +40,7 @@ function validateLogin() {
 // Función para manejar el inicio de sesión exitoso
 function handleLoginResponse(response) {
     if (!response.ok) {
+        handleFailedLogin(); // Maneja el intento fallido de inicio de sesión
         throw new Error(`HTTP error! status: ${response.status}`);
     }
 
@@ -77,7 +80,9 @@ function handleFailedLogin() {
 // Función para actualizar el texto del perfil
 function updateProfileText(username) {
     const perfilElement = document.getElementById("perfilText");
-    perfilElement.textContent = `Perfil: ${username}`;
+    if (perfilElement) {
+        perfilElement.textContent = `Perfil: ${username}`;
+    }
 }
 
 // Función para actualizar el texto de bienvenida
@@ -130,5 +135,11 @@ document.addEventListener("DOMContentLoaded", function () {
         updateNavigation(username); // Actualiza la navegación con el nombre de usuario almacenado
         updateProfileText(username); // Actualiza el texto del perfil con el nombre de usuario
         updateWelcomeText(username); // Actualiza el texto de bienvenida con el nombre de usuario
+    }
+
+    // Agregar evento de envío al formulario de inicio de sesión
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+        loginForm.addEventListener("submit", validateLogin);
     }
 });

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="Descubre en nuestras sucursales actividades emocionantes y alojamientos acogedores." />
+    <meta name="keywords" content="tur, viajes, turista, paseo" />
+    <title>Ingreso</title>
+    <link rel="stylesheet" href="../css/estilo.css" />
+    <link rel="stylesheet" href="../scss/estilo.scss" />
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="shortcut icon" href="/img/logo.png" type="image/x-icon" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <header>
+        <a href="../index.html">
+            <img class="logo" src="../img/logo.png" class="img-fluid" alt="logo de coder viajes" />
+        </a>
+        <button id="abrir" class="abrir-menu"><i class="bi bi-list"></i></button>
+        <nav class="nav" id="nav">
+            <button class="cerrar-menu" id="cerrar"><i class="bi bi-x"></i></button>
+            <ul class="nav-list">
+                <li class="item"><a href="/index.html">Home</a></li>
+                <li class="item"><a href="destinos.html">Destinos</a></li>
+                <li class="item"><a href="conoce-los-destinos.html">Conoce los destinos</a></li>
+                <li class="item"><a href="sucursales.html">Sucursales</a></li>
+                <li class="item"><a href="contacto.html">Contacto</a></li>
+                <li class="btn" id="loginBtn"><a href="#">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h1 id="welcomeMessage"></h1>
+        <h2>Le brindamos esta calculadora para poder financiar sus viajes</h2>
+
+        <div id="calculadora">
+            <label for="monto">Monto total del viaje ($): </label>
+            <input type="number" id="monto" name="monto" min="0" required><br><br>
+
+            <label for="plazo">Plazo de financiación (meses): </label>
+            <input type="number" id="plazo" name="plazo" min="1" max="60" required><br><br>
+
+            <label for="tasa">Tasa de interés anual (%): </label>
+            <input type="number" id="tasa" name="tasa" min="0" max="100" step="0.1" required><br><br>
+
+            <button onclick="calcularCuota()">Calcular Cuota Mensual</button>
+
+            <h3 id="resultado"></h3>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../img/roma.jpg" class="card-img-top" alt="Roma">
+                    <div class="card-body">
+                        <h5 class="card-title">Roma</h5>
+                        <p class="card-text">
+                            <button class="btn btn-outline-primary me-2" onclick="addToCart('Roma', 'economico', 800)">Económico: $800</button>
+                            <button class="btn btn-outline-primary me-2" onclick="addToCart('Roma', 'turista', 1200)">Turista: $1200</button>
+                            <button class="btn btn-outline-primary" onclick="addToCart('Roma', 'ejecutivo', 1500)">Ejecutivo: $1500</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../img/grecia.jpg" class="card-img-top" alt="Grecia">
+                    <div class="card-body">
+                        <h5 class="card-title">Grecia</h5>
+                        <p class="card-text">
+                            <button class="btn btn-outline-primary me-2" onclick="addToCart('Grecia', 'economico', 900)">Económico: $900</button>
+                            <button class="btn btn-outline-primary me-2" onclick="addToCart('Grecia', 'turista', 1300)">Turista: $1300</button>
+                            <button class="btn btn-outline-primary" onclick="addToCart('Grecia', 'ejecutivo', 1600)">Ejecutivo: $1600</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="../img/amsterdam.jpg" class="card-img-top" alt="Ámsterdam">
+                    <div class="card-body">
+                        <h5 class="card-title">Ámsterdam</h5>
+                        <p class="card-text">
+                            <button class="btn btn-outline-primary me-2" onclick="addToCart('Ámsterdam', 'economico', 1000)">Económico: $1000</button>
+                            <button class="btn btn-outline-primary me-2" onclick="addToCart('Ámsterdam', 'turista', 1400)">Turista: $1400</button>
+                            <button class="btn btn-outline-primary" onclick="addToCart('Ámsterdam', 'ejecutivo', 1700)">Ejecutivo: $1700</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="abajo mt-5">
+        <h3 class="texto-footer">Viajados tur - todos los derechos reservados</h3>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Función para agregar al carrito y redirigir
+        function addToCart(producto, tipo, precio) {
+            sessionStorage.setItem("carritoProducto", producto);
+            sessionStorage.setItem("carritoTipo", tipo);
+            sessionStorage.setItem("carritoPrecio", precio);
+            window.location.href = "carrito.html";
+        }
+
+        // Función para calcular la cuota mensual
+        function calcularCuota() {
+            const monto = parseFloat(document.getElementById('monto').value);
+            const plazo = parseInt(document.getElementById('plazo').value);
+            const tasa = parseFloat(document.getElementById('tasa').value);
+
+            if (!isNaN(monto) && !isNaN(plazo) && !isNaN(tasa)) {
+                const tasaMensual = tasa / 100 / 12;
+                const cuotaMensual = (monto * tasaMensual) / (1 - Math.pow(1 + tasaMensual, -plazo));
+                const cuotaFormateada = cuotaMensual.toFixed(2);
+
+                document.getElementById('resultado').textContent = `Cuota Mensual: $${cuotaFormateada}`;
+            } else {
+                document.getElementById('resultado').textContent = 'Por favor, ingrese valores válidos.';
+            }
+        }
+
+        // Mostrar el nombre de usuario en la página de ingreso
+        window.addEventListener('load', () => {
+            const params = new URLSearchParams(window.location.search);
+            const username = params.get('username');
+            if (username) {
+                document.getElementById('welcomeMessage').innerText = `Bienvenido, ${username}!`;
+            } else {
+                document.getElementById('welcomeMessage').innerText = 'Bienvenido!';
+            }
+        });
+
+        // Manejar logout
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            // Aquí podrías limpiar el estado de sesión si fuera necesario
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+</html>

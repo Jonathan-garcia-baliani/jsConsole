@@ -1,13 +1,11 @@
-// usuariosRoutes.js
-
 const express = require('express');
 const router = express.Router();
-const db = require('../db');
+const { getDb } = require('../db'); // Importa getDb desde db.js
 
 router.post('/register', async (req, res) => {
     try {
         const { username, password, email, age } = req.body;
-        const database = db.getDb();
+        const database = getDb(); // Usa getDb para obtener la instancia de la base de datos
 
         // Verificar si el usuario ya existe en la base de datos
         const existingUser = await database.collection('usuarios').findOne({ username });
